@@ -593,4 +593,74 @@ footer {
     .reviews-scroll-box {
         max-height: 400px; /* මොබයිල් එකේදී උස පොඩ්ඩක් අඩු කලා */
     }
+}/* Home Gallery Section Styling */
+.home-gallery-section {
+    padding: 60px 20px;
+    background-color: #f9fbfd;
+    text-align: center;
+}
+
+.home-gallery-section .section-title {
+    font-size: 2rem;
+    color: #10899e;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.home-gallery-section .section-subtitle {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+/* Grid Layout - 3 per row on desktop, automatic sizing on mobile */
+.home-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto 40px auto;
+}
+
+.gallery-item {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+    aspect-ratio: 4 / 3; /* ලස්සනට Landscape හැඩයට ඉමේජ් පෙනෙන්න */
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* View More Button Styling */
+.view-more-container {
+    margin-top: 20px;
+}
+
+.view-more-btn {
+    display: inline-block;
+    background-color: #10899e;
+    color: white;
+    padding: 12px 35px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 10px rgba(16, 137, 158, 0.3);
+}
+
+.view-more-btn:hover {
+    background-color: #1a365d;
+    transform: scale(1.03);
 }

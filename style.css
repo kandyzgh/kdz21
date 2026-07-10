@@ -1,0 +1,596 @@
+/* Basic Reset & Fonts */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #f9fbfd;
+    color: #333;
+}
+
+.container {
+    width: 85%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header & Navigation */
+header {
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.logo h2 {
+    color: #0f2c59;
+    font-weight: 700;
+}
+
+.logo h2 span {
+    color: #00adb5;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #444;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: #00adb5;
+}
+
+.btn-nav {
+    background-color: #00adb5;
+    color: white !important;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.btn-nav:hover {
+    background-color: #0f2c59;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(15, 44, 89, 0.85), rgba(15, 44, 89, 0.85)), url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=1200') no-repeat center center/cover;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding-top: 80px;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+    opacity: 0.9;
+}
+
+.btn-main {
+    display: inline-block;
+    background-color: #00adb5;
+    color: white;
+    text-decoration: none;
+    padding: 15px 35px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.btn-main:hover {
+    background-color: #ffffff;
+    color: #0f2c59;
+}
+
+/* Services Section */
+.services-section {
+    padding: 80px 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.2rem;
+    color: #0f2c59;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    background: white;
+    padding: 35px 25px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+    border-bottom: 4px solid #e1e8ed;
+    transition: 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    border-bottom: 4px solid #00adb5;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.service-card h3 {
+    margin-bottom: 15px;
+    color: #0f2c59;
+}
+
+.service-card p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Contact Section & Form */
+.contact-section {
+    background-color: #f0f4f8;
+    padding: 80px 0;
+}
+
+.section-subtitle {
+    text-align: center;
+    margin-top: -40px;
+    margin-bottom: 40px;
+    color: #666;
+}
+
+.booking-form {
+    background: white;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #0f2c59;
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1px;
+    outline: none;
+}
+
+.form-group input:focus, 
+.form-group select:focus, 
+.form-group textarea:focus {
+    border-color: #00adb5;
+}
+
+.btn-submit {
+    width: 100%;
+    background-color: #0f2c59;
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-submit:hover {
+    background-color: #00adb5;
+}
+
+/* Footer */
+footer {
+    background-color: #0f2c59;
+    color: white;
+    text-align: center;
+    padding: 25px 0;
+    font-size: 0.9rem;
+}/* style.css */
+/* WhatsApp Floating Button Styling */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 30px;      /*  */
+    right: 30px;       /* */
+    background-color: #25d366; /* WhatsApp  */
+    color: #fff;
+    border-radius: 50px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 9999;     /*  */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+/* Mouse  (Zoom) Effect */
+.whatsapp-float:hover {
+    background-color: #20ba5a;
+    transform: scale(1.1);
+}
+
+/* Mobile Devices  (Overlapping) */
+@media (max-width: 768px) {
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+    }
+    .whatsapp-float svg {
+        width: 25px;
+        height: 25px;
+    }
+}
+/* Gallery Styling */
+.gallery-section {
+    padding: 60px 20px;
+    background-color: #ffffff;
+}
+
+.gallery-grid {
+    display: grid;
+    /* Computer වලදී පේළියට පින්තූර 4ක් බැගින් ලස්සනට බෙදෙන්න */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 20px;
+    padding: 10px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    height: 250px; /* කම්පියුටරයේදී උස */
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.08); 
+}
+
+/* 📱 Mobile Devices සහ Tablets සඳහා විශේෂ Design එක (මෙන්න මේකයි වැදගත්ම කොටස) */
+@media (max-width: 768px) {
+    .gallery-grid {
+        /* පින්තූර ලොකුවට එකක් යට එකක් වැටෙන එක නතර කරලා, පේළියට පින්තූර 2 බැගින් ලස්සනට හදනවා */
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px !important;
+        padding: 5px !important;
+    }
+    
+    .gallery-item {
+        /* ෆෝන් එකේ screen එකට ගැලපෙන්න පින්තූරවල උස පොඩ්ඩක් අඩු කරනවා */
+        height: 150px !important; 
+    }
+}/* ==========================================
+   FINAL PREMIUM FOOTER STYLING 
+============================================ */
+.main-footer {
+    background-color: #1a365d; /* තද නිල් පාට */
+    color: #e2e8f0;
+    padding: 60px 20px 30px 20px;
+    font-family: sans-serif;
+}
+
+/* Columns 3 අතර ඉඩ (Space) ලස්සනට බෙදා හැරීම */
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 50px; /* Column අතර පරතරය වැඩි කරා */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-col h3 {
+    color: #ffffff;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.footer-col h3 span {
+    color: #10899e;
+}
+
+.footer-col h4 {
+    color: #ffffff;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    position: relative;
+    width: fit-content;
+}
+
+.footer-col h4::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 40px;
+    height: 2px;
+    background-color: #10899e;
+}
+
+.footer-col p {
+    line-height: 1.6;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+/* 🔴 අර කැත දලු/තිත් (Dots) 7 සම්පූර්ණයෙන්ම අයින් කිරීම */
+.footer-services-list, .footer-contact-list {
+    list-style: none !important; /* තිත් සම්පූර්ණයෙන්ම නැති කරයි */
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.footer-services-list li, .footer-contact-list li {
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+    color: #e2e8f0;
+    line-height: 1.4;
+    list-style-type: none !important; /* Double Check තිත් අයින් කිරීම */
+}
+
+/* 🎯 Social Media Icons ටික Column එක මැදට Center කිරීම */
+.footer-socials {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+    justify-content: flex-start; /* Default වමට */
+}
+
+.social-icon-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    color: white;
+    text-decoration: none;
+    font-size: 1.3rem;
+    transition: all 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+.social-icon-btn.facebook:hover { background-color: #1877f2; transform: translateY(-3px); }
+.social-icon-btn.tiktok:hover { background-color: #010101; box-shadow: 0 0 10px #fe2c55; transform: translateY(-3px); }
+.social-icon-btn.instagram:hover { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); transform: translateY(-3px); }
+
+/* Copyright Bar */
+.footer-bottom {
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.85rem;
+    color: #a0aec0;
+}
+
+/* 📱 Mobile Devices */
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center; /* ෆෝන් එකේදී විතරක් අකුරු ඔක්කොම මැදට ගන්න */
+    }
+    
+    .footer-col h4 {
+        margin-left: auto;
+        margin-right: auto; /* Heading එක යට ඉර මැදට ගන්න */
+    }
+    
+    .footer-socials {
+        justify-content: center; /* ෆෝන් එකේදී Icons ටික ලස්සනට මැදට (Center) කරනවා */
+    }
+}/* Custom Reviews Section Layout */
+.reviews-section {
+    padding: 70px 20px;
+    background-color: #f7fafc;
+}
+
+.reviews-layout {
+    display: flex;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.reviews-display-column {
+    flex: 1.5;
+}
+
+/* 🎯 රිවීව්ස් 30ම කොටුවක් ඇතුළේ Scroll කරවන කොටස */
+.reviews-scroll-box {
+    max-height: 520px; /* පෙට්ටියේ උස සීමා කරා */
+    overflow-y: auto;  /* පල්ලෙහාට Scroll වෙන්න හැදුවා */
+    padding-right: 15px;
+}
+
+/* Scrollbar එක ලස්සන කිරීම */
+.reviews-scroll-box::-webkit-scrollbar {
+    width: 6px;
+}
+.reviews-scroll-box::-webkit-scrollbar-thumb {
+    background-color: #cbd5e0;
+    border-radius: 10px;
+}
+
+.review-form-column {
+    flex: 1;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    height: fit-content;
+}
+
+.sub-title {
+    color: #1a365d;
+    font-size: 1.3rem;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-weight: 700;
+    border-bottom: 2px solid #10899e;
+    width: fit-content;
+    padding-bottom: 5px;
+}
+
+.site-review-card {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    border-left: 4px solid #10899e; /* වම් පැත්තෙන් ලස්සන නිල් ඉරක් */
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.user-name {
+    font-weight: bold;
+    color: #2d3748;
+}
+
+.site-stars {
+    font-size: 0.9rem;
+}
+
+.review-text {
+    font-style: italic;
+    color: #4a5568;
+    line-height: 1.6;
+    font-size: 0.95rem;
+    margin-bottom: 5px;
+    margin-top: 0;
+}
+
+.review-date {
+    font-size: 0.8rem;
+    color: #a0aec0;
+    display: block;
+}
+
+/* Form Styles */
+.custom-review-form .form-group {
+    margin-bottom: 15px;
+}
+
+.custom-review-form label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #4a5568;
+}
+
+.custom-review-form input, 
+.custom-review-form select, 
+.custom-review-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cbd5e0;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    background-color: #fdfdfd;
+}
+
+.submit-review-btn {
+    width: 100%;
+    background-color: #10899e;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.submit-review-btn:hover {
+    background-color: #1a365d;
+}
+
+/* 📱 Mobile Responsive */
+@media (max-width: 950px) {
+    .reviews-layout {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .reviews-scroll-box {
+        max-height: 400px; /* මොබයිල් එකේදී උස පොඩ්ඩක් අඩු කලා */
+    }
+}

@@ -682,3 +682,24 @@ footer {
     margin: 0 auto 30px auto !important;
     max-width: 600px !important;
 }
+/* Grid එක හරියටම පේළියකට 3ක් කරන Fix එක */
+.home-gallery-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important; /* Desktop එකේදී පේළියකට හරියටම 3යි */
+    gap: 20px !important;
+    max-width: 1200px !important;
+    margin: 0 auto 40px auto !important;
+}
+
+/* 📱 Phone එකෙන් බලද්දී එක පේළියකට 2ක් හෝ 1ක් වෙන විදිහට Responsive කරන කොටස */
+@media (max-width: 768px) {
+    .home-gallery-grid {
+        grid-template-columns: repeat(2, 1fr) !important; /* Phone එකේදී පේළියකට 2යි */
+    }
+}
+
+@media (max-width: 480px) {
+    .home-gallery-grid {
+        grid-template-columns: 1fr !important; /* ගොඩක් කුඩා Phone වලදී පේළියකට 1යි */
+    }
+}

@@ -663,4 +663,22 @@ footer {
 .view-more-btn:hover {
     background-color: #1a365d;
     transform: scale(1.03);
+}/* Heading එක උඩ වැදෙන එක හදන Quick Fix */
+.home-gallery-section .section-title {
+    display: block !important;
+    position: relative !important;
+    font-size: 2.2rem !important;
+    color: #10899e !important;
+    margin: 0 auto 15px auto !important;
+    height: auto !important;
+    line-height: 1.3 !important;
+}
+
+.home-gallery-section .section-subtitle {
+    display: block !important;
+    position: relative !important;
+    font-size: 1.1rem !important;
+    color: #555 !important;
+    margin: 0 auto 30px auto !important;
+    max-width: 600px !important;
 }

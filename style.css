@@ -703,3 +703,10 @@ footer {
         grid-template-columns: 1fr !important; /* ගොඩක් කුඩා Phone වලදී පේළියකට 1යි */
     }
 }
+/* Phone එකෙන් බලද්දීත් පේළියකට 2 ගාණේම තියාගන්න Fix එක */
+@media (max-width: 768px) {
+    .home-gallery-grid {
+        grid-template-columns: repeat(2, 1fr) !important; /* හැම ෆෝන් එකකම පේළියකට 2යි */
+        gap: 10px !important; /* ෆෝන් එකේදී ඉඩ මදි නිසා ඉමේජ් අතර පරතරය පොඩ්ඩක් අඩු කරා */
+    }
+}

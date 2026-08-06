@@ -657,6 +657,134 @@
   <p style="margin-top: 40px; color: #64748b; font-size: 0.9rem; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.6;">* <strong>Note:</strong> Final pricing may vary slightly based on the square footage, layout, and actual condition of the property or fabric items. Contact Kandy Premium Cleaning for a precise custom quote.</p>
 </section>
 <!-- Pricing & Services Section End -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Payment - Kandy Premium Cleaning</title>
+  <!-- PayHere JS SDK -->
+  <script type="text/javascript" src="https://www.payhere.lk/payhere.js"></script>
+</head>
+<body>
+
+  <!-- Checkout Section -->
+  <section id="checkout" style="padding: 50px 20px; font-family: sans-serif;">
+    <div style="max-width: 500px; margin: 0 auto; background: #ffffff; padding: 30px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border: 1px solid #e2e8f0;">
+      
+      <h2 style="text-align: center; color: #0f2c59; margin-bottom: 20px;">Pay Online</h2>
+
+      <form onsubmit="startPayHerePayment(event)">
+        
+        <div style="margin-bottom: 15px;">
+          <label style="display:block; margin-bottom: 5px; font-weight: bold;">Full Name *</label>
+          <input type="text" id="cust_name" required placeholder="Enter your full name" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box;">
+        </div>
+
+        <div style="margin-bottom: 15px;">
+          <label style="display:block; margin-bottom: 5px; font-weight: bold;">Phone Number *</label>
+          <input type="tel" id="cust_phone" required placeholder="077XXXXXXX" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box;">
+        </div>
+
+        <div style="margin-bottom: 15px;">
+          <label style="display:block; margin-bottom: 5px; font-weight: bold;">Email Address *</label>
+          <input type="email" id="cust_email" required placeholder="name@example.com" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box;">
+        </div>
+
+        <div style="margin-bottom: 15px;">
+          <label style="display:block; margin-bottom: 5px; font-weight: bold;">Service / Description *</label>
+          <input type="text" id="cust_service" required placeholder="e.g. Sofa Cleaning Advance" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box;">
+        </div>
+
+        <div style="margin-bottom: 20px;">
+          <label style="display:block; margin-bottom: 5px; font-weight: bold;">Amount (LKR) *</label>
+          <input type="number" id="cust_amount" min="100" required placeholder="5000" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 1.1rem; font-weight: bold; box-sizing: border-box;">
+        </div>
+
+        <button type="submit" style="width: 100%; background: #0284c7; color: white; padding: 12px; border: none; border-radius: 5px; font-size: 1rem; font-weight: bold; cursor: pointer;">
+          Pay Now
+        </button>
+
+      </form>
+    </div>
+  </section>
+
+  <!-- PayHere Trigger Logic -->
+  <script>
+    async function startPayHerePayment(e) {
+      e.preventDefault();
+
+      var orderId = "KPC-" + Math.floor(100000 + Math.random() * 900000);
+      var amount = parseFloat(document.getElementById("cust_amount").value).toFixed(2);
+      var currency = "LKR";
+      var serviceName = document.getElementById("cust_service").value;
+      var custName = document.getElementById("cust_name").value.trim().split(" ");
+      var firstName = custName[0] || "Customer";
+      var lastName = custName.slice(1).join(" ") || "Client";
+      var email = document.getElementById("cust_email").value;
+      var phone = document.getElementById("cust_phone").value;
+
+      try {
+        // 1. Netlify Function එකෙන් Security Hash එක ලබා ගැනීම
+        let response = await fetch('/.netlify/functions/payhere-hash', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ order_id: orderId, amount: amount, currency: currency })
+        });
+
+        let data = await response.json();
+
+        if (!data.hash) {
+          alert("Error: " + (data.error || "Hash generation failed. Please check Netlify settings."));
+          return;
+        }
+
+        // 2. PayHere Payment Object එක
+        var payment = {
+          "sandbox": false, // Live Mode
+          "merchant_id": data.merchant_id,
+          "return_url": "https://kandypremiumcleaning.lk/",
+          "cancel_url": "https://kandypremiumcleaning.lk/",
+          "notify_url": "https://kandypremiumcleaning.lk/",
+          "order_id": orderId,
+          "items": serviceName,
+          "amount": amount,
+          "currency": currency,
+          "hash": data.hash,
+          "first_name": firstName,
+          "last_name": lastName,
+          "email": email,
+          "phone": phone,
+          "address": "Kandy",
+          "city": "Kandy",
+          "country": "Sri Lanka"
+        };
+
+        // Callbacks
+        payhere.onCompleted = function onCompleted(orderId) {
+          alert("Payment Successful! Order ID: " + orderId);
+        };
+
+        payhere.onDismissed = function onDismissed() {
+          alert("Payment Canceled.");
+        };
+
+        payhere.onError = function onError(error) {
+          alert("PayHere Error: " + error);
+        };
+
+        // 3. Open PayHere Modal
+        payhere.startPayment(payment);
+
+      } catch (err) {
+        console.error(err);
+        alert("Server error. Please try again.");
+      }
+    }
+  </script>
+
+</body>
+</html>
 
 
     </div>
